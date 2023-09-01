@@ -1,35 +1,40 @@
 import React from "react";
-import "./Login.css";
+import "./Login.scss";
 import mainLogo from "../../assets/img/Logo.png";
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
-  return (
-    <div className="Login">
+  const Navigate = useNavigate();
 
-      <div className="Splash">
+  const LoginBtn = () => {
+    Navigate('/Main');
+  }
+
+  return (
+    <div className="login">
+
+      <div className="loginSplash">
         {/* <img className="logo" src="img/Logo.png" alt="logo" /> */}
-        <img className="Logo" src={mainLogo} alt="logo" />
+        <img className="logo" src={mainLogo} alt="logo" />
         <img className="logo_wecode" src="img/logo_wecode.png" alt="Logo2" />
       </div> 
 
-      <div className="container">
+      <div className="loginContainer">
 
-        <div class="Input">
+        <div class="input">
           <input className="textInput_lv1" type="text" placeholder="이메일" />
           <input className="textInput_lv1" type="password" placeholder="비밀번호" />
         </div>
 
-        <button className="Button_fill">
+        <button className="buttonFill" onClick={LoginBtn}>
           <span>로그인</span>
         </button>
 
-        <div className="login_option">
-          <a href="#">회원 가입</a> 
-          {/* <span style={{ cursor: 'pointer'}}  onClick={() => console.log('회원가입으로 이동')}>회원 가입</span> */}
-          <div></div>
-          <a href="#">비밀번호 찾기</a>
-          {/* <span style={{ cursor: 'pointer'}}  onClick={() => console.log('비밀번호 찾기로 이동')}>비밀번호 찾기</span> */}
+        <div className="loginOption">
+          <Link to="/Main">회원 가입</Link> 
+          <div />
+          <Link to='/'>비밀번호 찾기</Link>
         </div>
         
       </div>
